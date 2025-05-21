@@ -1,0 +1,37 @@
+/* static/css/style.css */
+
+/* Esempio di personalizzazione della navbar */
+.navbar {
+    background-color: #343a40 !important; /* Cambia colore della navbar */
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 0;
+}
+
+/* Card per i messaggi */
+.card {
+    border-radius: 8px;  /* Aggiungi bordi arrotondati */
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: #f8f9fa;
+}
+
+/* Aggiungi padding personalizzato alle sezioni */
+.container {
+    padding: 30px;
+}
+
+/* Stile per il form */
+.form-label {
+    font-weight: bold;
+}

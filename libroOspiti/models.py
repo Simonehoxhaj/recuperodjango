@@ -6,7 +6,7 @@ class Autore(models.Model):
     nome = models.CharField(max_length=50)
     cognome = models.CharField(max_length=50)
 
-class Commento(models.model):
+class Commento(models.Model):
     data = models.DateField(auto_now_add=True)
     testo = models.TextField()
     autore = models.ForeignKey(Autore,on_delete=models.CASCADE)

@@ -1,0 +1,51 @@
+{% extends 'libroOspiti/_base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <h2>Benvenuto nel nostro Libro degli Ospiti!</h2>
+            <p>Lascia il tuo messaggio e saluta gli altri visitatori.</p>
+            
+            <!-- Form per inserire un messaggio -->
+            <div class="card">
+                <div class="card-header">
+                    Aggiungi un Messaggio
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Messaggio</label>
+                            <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Invia</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Elenco dei messaggi -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    Messaggi Recenti
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>Mario Rossi</strong> - <span class="text-muted">25 maggio 2025</span>
+                            <p>Questo è un messaggio di esempio nel libro degli ospiti!</p>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Giulia Bianchi</strong> - <span class="text-muted">24 maggio 2025</span>
+                            <p>Ciao a tutti, bellissimo sito!</p>
+                        </li>
+                        <!-- Aggiungi altri messaggi qui -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
