@@ -11,15 +11,13 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
+                        {% for messaggio in messaggi %}
                         <li class="list-group-item">
-                            <strong>Mario Rossi</strong> - <span class="text-muted">25 maggio 2025</span>
-                            <p>Questo è un messaggio di esempio nel libro degli ospiti!</p>
+                            <strong>{{messaggio.autore.username}}</strong> - <span class="text-muted">{{messaggio.data}}</span>
+                            <p>{{messaggio.testo}}</p>
                         </li>
-                        <li class="list-group-item">
-                            <strong>Giulia Bianchi</strong> - <span class="text-muted">24 maggio 2025</span>
-                            <p>Ciao a tutti, bellissimo sito!</p>
-                        </li>
-                        <!-- Aggiungi altri messaggi qui -->
+                        
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
