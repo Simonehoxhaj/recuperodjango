@@ -1,26 +1,40 @@
 {% extends 'libroOspiti/_base.html' %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-12">
-            <h2>Benvenuto nel nostro Libro degli Ospiti!</h2>
-            <!-- Elenco dei messaggi -->
-            <div class="card mt-4">
-                <div class="card-header">
-                    Messaggi Recenti
-                </div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        {% for messaggio in messaggi %}
-                        <li class="list-group-item">
-                            <strong>{{messaggio.autore.username}}</strong> - <span class="text-muted">{{messaggio.data}}</span>
-                            <p>{{messaggio.testo}}</p>
-                        </li>
-                        
-                        {% endfor %}
-                    </ul>
-                </div>
+<div class="row">
+    <div class="col-12">
+        <h2>Benvenuto nel nostro Libro degli Ospiti!</h2>
+
+        <!-- Filtro per Username (Select Dropdown) -->
+        <form method="GET" class="mb-4">
+            <div class="input-group">
+                <select class="form-control" name="username">
+                    <option value="">Seleziona un autore</option>
+                    {% for autore in autori %}
+                        <option value="{{ autore.username }}" {% if request.GET.username == autore.username %}selected{% endif %}>{{ autore.username }}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-primary" type="submit">Filtra</button>
+            </div>
+        </form>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                Messaggi Recenti
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for messaggio in messaggi %}
+                    <li class="list-group-item">
+                        <strong>{{ messaggio.autore.username }}</strong> - <span class="text-muted">{{ messaggio.data }}</span>
+                        <p>{{ messaggio.testo }}</p>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item">Nessun messaggio trovato per questo autore.</li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
