@@ -1,0 +1,28 @@
+{% extends 'libroOspiti/_base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <h2>Benvenuto nel nostro Libro degli Ospiti!</h2>
+            <!-- Elenco dei messaggi -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    Messaggi Recenti
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>Mario Rossi</strong> - <span class="text-muted">25 maggio 2025</span>
+                            <p>Questo è un messaggio di esempio nel libro degli ospiti!</p>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Giulia Bianchi</strong> - <span class="text-muted">24 maggio 2025</span>
+                            <p>Ciao a tutti, bellissimo sito!</p>
+                        </li>
+                        <!-- Aggiungi altri messaggi qui -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

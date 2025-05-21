@@ -3,8 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Autore(models.Model):
-    nome = models.CharField(max_length=50)
-    cognome = models.CharField(max_length=50)
+    username = models.CharField(max_length=50)
 
 class Commento(models.Model):
     data = models.DateField(auto_now_add=True)

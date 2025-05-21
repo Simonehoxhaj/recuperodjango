@@ -5,3 +5,7 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'libroOspiti/home.html')
+
+
+def messaggi(request):
+    return render(request,"libroOspiti/messaggi.html")
