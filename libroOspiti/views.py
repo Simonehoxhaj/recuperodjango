@@ -33,6 +33,9 @@ def index(request):
 
 
 def messaggi(request):
-    
+    autoreDaMostrare = ""
+    if request.method == "POST":
+        autoreDaMostrare = request.POST.get("username")
     messaggi = Commento.objects.all()
-    return render(request,"libroOspiti/messaggi.html",{"messaggi":messaggi})
+    autori = Autore.objects.all()
+    return render(request,"libroOspiti/messaggi.html",{"messaggi":messaggi,"autori":autori,"autoreDaMostrare":autoreDaMostrare})

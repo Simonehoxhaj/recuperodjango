@@ -5,19 +5,20 @@
     <div class="col-12">
         <h2>Benvenuto nel nostro Libro degli Ospiti!</h2>
 
-        <!-- Filtro per Username (Select Dropdown) -->
-        <form method="GET" class="mb-4">
+        <form method="POST" class="mb-4">
+            {% csrf_token %}
+            <label for="username">Seleziona un'autore da filtrare:</label>
             <div class="input-group">
                 <select class="form-control" name="username">
-                    <option value="">Seleziona un autore</option>
+                    <option value="">Tutti</option>
                     {% for autore in autori %}
-                        <option value="{{ autore.username }}" {% if request.GET.username == autore.username %}selected{% endif %}>{{ autore.username }}</option>
+                        <option value="{{ autore.username }}" {% if request.POST.username == autore.username %}selected{% endif %}>{{ autore.username }}</option>
                     {% endfor %}
                 </select>
                 <button class="btn btn-primary" type="submit">Filtra</button>
             </div>
         </form>
-
+        <br>
         <div class="card mt-4">
             <div class="card-header">
                 Messaggi Recenti
@@ -25,13 +26,16 @@
             <div class="card-body">
                 <ul class="list-group">
                     {% for messaggio in messaggi %}
-                    <li class="list-group-item">
-                        <strong>{{ messaggio.autore.username }}</strong> - <span class="text-muted">{{ messaggio.data }}</span>
-                        <p>{{ messaggio.testo }}</p>
-                    </li>
-                    {% empty %}
-                    <li class="list-group-item">Nessun messaggio trovato per questo autore.</li>
+                        {% if  autoreDaMostrare == "" or  autoreDaMostrare == messaggio.autore.username   %}
+                            <li class="list-group-item">
+                                <strong>{{ messaggio.autore.username }}</strong> - <span class="text-muted">{{ messaggio.data }}</span>
+                                <p>{{ messaggio.testo }}</p>
+                            </li>
+                        {% endif %}
                     {% endfor %}
+                    {% if not messaggi %}
+                        <li class="list-group-item">Nessun messaggio trovato.</li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
