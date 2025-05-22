@@ -1,5 +1,5 @@
-### Progetto di Simone Hoxhaj
+# Progetto di Simone Hoxhaj
 
-# Questo progetto permette a degli utenti di lasciare e visualizzare dei messaggi su un sito WEB.
+#### Questo progetto permette a degli utenti di lasciare e visualizzare dei messaggi su un sito WEB.
 
-# Lascio il file db.sqlite3 su classroom
+#### Lascio il file db.sqlite3 su classroom
